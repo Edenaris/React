@@ -1,17 +1,21 @@
 import React from 'react';
 
+import netflixLogo from '../img/netflix-logo-png-2562.png';
+import searchIcon from '../img/fe_search.svg';
+import avatar from '../img/Ellipse2.png';
+
 const Header = () => {
     return (
         <header>
-            <div class="left">
-                {/* <img src="img/netflix-logo-png-2562.png" alt="Netflix Logo"> */}
+            <div className="left">
+                <img src={netflixLogo} alt="Netflix Logo" />
                 <p>Friday July 8th</p>
             </div>
-            <div class="right">
-                <button class="search-button">
-                    {/* <img src="img/fe_search.svg" alt="Search Icon"> */}
+            <div className="right">
+                <button className="search-button">
+                    <img src={searchIcon} alt="Search Icon" />
                 </button>
-                {/* <img src="img/Ellipse2.png" alt="Avatar" class="avatar"> */}
+                <img src={avatar} alt="Avatar" className="avatar" />
             </div>
         </header>
     );
