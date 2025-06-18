@@ -5,11 +5,11 @@ import rectangle8 from '../img/Rectangle8.png';
 import rectangle9 from '../img/Rectangle9.png';
 import rectangle11 from '../img/Rectangle11.png';
 
-const SectionLower = () => {
+const SectionLower = (props) => {
     return (
         <section>
             <div className="section-header">
-                <h2>POPULAR THIS WEEK</h2>
+                <h2>{props.popular}</h2>
                 <div className="arrows">
                     <button className="arrow-btn left-arrow">
                         <i className="fa fa-chevron-left"></i>

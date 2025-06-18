@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Section = () => {
+const Section = (props) => {
     return (
         <section>
                 <div class="genres">
@@ -10,17 +10,17 @@ const Section = () => {
                 </div>
                 <div class="MainName">
                     <h1>
-                        Stranger Things
+                        {props.title}
                     </h1>
                 </div>
                 <div class="info">
-                    <span>2019</span>
+                    <span>{props.yearData}</span>
                     <span><strong>DIRECTOR:</strong> <span class="episodes">Shawn Levy</span></span>
                     <span><strong>seasons:</strong>  <span class="episodes">3(5 Episodes)</span></span>
                 </div>
                 <div class="filmInfo">
                     <p>
-                        In 1980s Indiana, a group of young friends witness supernatural forces and secret government exploits. As they search for answers, the children unravel a series of extraordinary mysteries.
+                        {props.text}
                     </p>
                 </div>
                 <div class="stars">
