@@ -15,41 +15,41 @@ const Section = (props) => {
     }
     return (
         <section>
-                <div class="genres">
-                    {janr.map(gan => <span key={gan} >{gan}</span>)}
+                <div className="genres">
+                    {janr.map((gan, id) => <span key={id} >{gan}</span>)}
                 </div>
-                <div class="MainName">
+                <div className="MainName">
                     <h1>
                         {props.title}
                     </h1>
                 </div>
-                <div class="info">
+                <div className="info">
                     <span>{props.yearData}</span>
-                    <span><strong>DIRECTOR:</strong> <span class="episodes">Shawn Levy</span></span>
-                    <span><strong>seasons:</strong>  <span class="episodes">3(5 Episodes)</span></span>
+                    <span><strong>DIRECTOR:</strong> <span className="episodes">Shawn Levy</span></span>
+                    <span><strong>seasons:</strong>  <span className="episodes">3(5 Episodes)</span></span>
                 </div>
-                <div class="filmInfo">
+                <div className="filmInfo">
                     <p>
                         {props.text}
                     </p>
                 </div>
-                <div class="stars">
-                    {ratings.reverse().map(rating => 
-                    <span class="star" onClick={() => handleStarClick(rating)}>
-                        <i class="fa-regular fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        
+                <div className="stars">
+                    {ratings.reverse().map((rating,id) => 
+                    <span className="star" key={id} onClick={() => handleStarClick(rating)}>
+                        <i className="fa-regular fa-star"></i>
+                        <i className="fa-solid fa-star"></i>
                     </span>
                     )}
                 </div>
-                <div class="buttons">
-                    <button class="btn btn-primary" onClick={RbtnClick}>
-                        STREAM NOW <i class="fa fa-play"></i>
+                <div className="buttons">
+                    <button className="btn btn-primary" onClick={RbtnClick}>
+                        STREAM NOW <i className="fa fa-play"></i>
                     </button>
-                    <button class="btn btn-secondary" onClick={AbtnClick}>
+                    <button className="btn btn-secondary" onClick={AbtnClick}>
                         ALL EPISODES
                     </button>
                 </div>
+                
             </section>
     );
 };

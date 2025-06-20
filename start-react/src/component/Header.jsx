@@ -12,7 +12,7 @@ const Header = ({data}) => {
                 <img src={netflixLogo} alt="Netflix Logo" />
                 <p>Friday July {data}</p>
             </div>
-            <HeaderLog isLog={false}></HeaderLog>
+            <HeaderLog isLog={true}></HeaderLog>
         </header>
     );
 };

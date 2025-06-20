@@ -7,13 +7,19 @@ HeaderLog.propTypes = {
 };
 
 function HeaderLog(props) {
+    const testFunk = (Masange) =>{
+        return alert(`Your ${Masange}`);
+    }
+    const callFunk = () =>{
+        testFunk('Hi');
+    }
     if (props.isLog){
         return(
             <div className="right">
                 <button className="search-button">
                     <img src={searchIcon} alt="Search Icon" />
                 </button>
-                <img src={avatar} alt="Avatar" className="avatar" />
+                <img onClick={callFunk} src={avatar} alt="Avatar" className="avatar" />
             </div>
         );
     }else{
