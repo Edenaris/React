@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Section = (props) => {
-    const janr = ["Drama", "Thriller", "Supernatural,", "Mystery", "Sci-Fi"];
+    const janr = ["Drama", "Thriller", "Supernatural", "Mystery", "Sci-Fi"];
     const ratings = [1, 2, 3, 4, 5];
     const handleStarClick = (rating) => {
         alert(`You rated this ${rating}`);

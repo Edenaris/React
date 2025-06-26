@@ -315,3 +315,59 @@ header p{
         flex-wrap: wrap;
     }
 }
+.search-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+@keyframes sliceLeft{
+    0%{
+        width: 0;
+        padding: 10px 0px;
+    }
+    100%{
+        width: 200px;
+        
+    }
+}
+.search-input {
+  padding: 10px 14px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: border-color 0.2s ease;
+  max-width: 200px;
+  animation: sliceLeft 0.5s ease-in;
+}
+
+
+.search-input:focus {
+  outline: none;
+  border-color: #007bff;
+}
+
+
+.search-inputResult {
+  background: white;
+  height: 40px;
+  line-height: 40px;
+  padding: 0 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 15px;
+  color: #333;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  animation: sliceLeftResult 0.5s ease-in;
+}
+@keyframes sliceLeftResult{
+    0%{
+        width: 0;
+        padding: 10px 0px;
+    }
+    100%{
+        width: 200px;
+        
+    }
+}
+
