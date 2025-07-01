@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import searchIcon from '../img/fe_search.svg';
 import avatar from '../img/Ellipse2.png';
@@ -10,13 +10,18 @@ function HeaderLog(props) {
 
     const [isVisibleForm, setIsVisibleForm] = useState(false); 
     const [textFromInput, setTextFromInput] = useState('');
-    
+    const [count, setCount] = useState(0); 
     const testFunk = (Masange) =>{
         return alert(`Your ${Masange}`);
     }
     const callFunk = () =>{
         testFunk('Hi');
     }
+    useEffect(()=>{
+        console.log('click');
+        setCount(prev => prev+=1)
+    }, [isVisibleForm])
+    
     if (props.isLog){
         return(
             <div className="right">
@@ -34,9 +39,16 @@ function HeaderLog(props) {
                     </div>
 
                 )}
-                <button className="search-button" onClick={() => setIsVisibleForm(!isVisibleForm)}>
-                    <img src={searchIcon} alt="Search Icon" />
-                </button>
+                <div className='' style={{position: 'relative', display: 'flex'}}>
+                    <button className="search-button" onClick={() => setIsVisibleForm(!isVisibleForm)}>
+                        <img src={searchIcon} alt="Search Icon" />
+                    </button>
+                    <div className='' style={{position:'absolute', left: '50%', top: '100%', transform: 'translate(-50%)'}}>
+                        <p>
+                            {count}
+                        </p> 
+                    </div>
+                </div>
                 <img onClick={callFunk} src={avatar} alt="Avatar" className="avatar" />
             </div>
         );
