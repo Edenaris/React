@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 const Main = () => {
-    const [cards,setCards] = useState([
+    
+    const [cards, setCards] = useState([
         {name:'Free',price:'$0/mo',descriptionU:'10 users included',descriptionM:'2 GB of storage',emailSup:'Email support',button:'Sign up for free'}
     ]);
+
     const [newCard, setNewCard] = useState({
         name:'',
         price:'',
@@ -12,11 +14,32 @@ const Main = () => {
         emailSup:'',
         button:''
     });
+    const curentTarrif = useRef({
+        name:'',
+        price:''
+    });
+    const prevTarrif = useRef({
+        name:'',
+        price:''
+    });
     function loadCard(newCard){
         setCards([...cards, newCard]);
     }
+    const [, forceUpdate] = useState({});
+    function handleChangeTarrif(name, price) {
+        prevTarrif.current.name = curentTarrif.current.name
+        prevTarrif.current.price = curentTarrif.current.price
+        curentTarrif.current.name = name
+        curentTarrif.current.price = price
+        forceUpdate({})
+    }
+    
     return (
-        <div className='flex-grow' >
+        
+        <>
+        <div className='fixed left-2.5 top-2.5 p-2.5 border-1 rounded-md'><h2>Previous tarrif:</h2><span>{prevTarrif.current.name}</span><span>{prevTarrif.current.price}<h2>Curent tarrif:</h2><span>{curentTarrif.current.name}</span><span>{curentTarrif.current.price}</span></span></div>
+        
+        <div className='flex-grow py-5' >
             <main className='w-300 flex flex-col items-center ' >
                 <div className='flex flex-col gap-2 w-[350px] pt-3 items-center'>
                     <div className='flex items-center gap-4'>
@@ -79,7 +102,7 @@ const Main = () => {
                 <p className='text-gray-500'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, incidunt. Quo ducimus itaque nulla impedit, temporibus dicta nihil non porro.</p>
                 <div id='cards-container' className='grid grid-cols-3  w-300 grid-rows-[320px] gap-y-5 gap-x-2.5 pt-5'>
                     {cards.map((card, idx) => (
-                        <div  className="bg-white shadow-md rounded-lg  flex flex-col items-center w-[390px] h-[320px] ">
+                        <div key={idx} className="bg-white shadow-md rounded-lg  flex flex-col items-center w-[390px] h-[320px] ">
                             <h2 className="text-2xl font-bold p-1 w-full bg-slate-200 flex justify-center">{card.name}</h2>
                             <div className='flex flex-col items-center gap-3.5 py-8 '>
                                 <p className="text-xl text-blue-600 ">{card.price}</p>
@@ -89,12 +112,13 @@ const Main = () => {
                                     <li>{card.emailSup}</li>
                                 </ul>
                             </div>  
-                            <button className={`w-9/10 py-2 shadow-md rounded-md border-1 border-slate-200/80 ${card.button === 'Sign up for free'? 'bg-transparent' : "bg-blue-400"}`}>{card.button}</button>     
+                            <button onClick={() => handleChangeTarrif(card.name, card.price)} className={`w-9/10 py-2 shadow-md rounded-md border-1 border-slate-200/80 ${card.button === 'Sign up for free'? 'bg-transparent' : "bg-blue-400"}`}>{card.button}</button>     
                         </div>
                     ))}
                 </div>
             </main>
         </div>
+        </>
     );
 };
 
