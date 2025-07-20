@@ -21,4 +21,96 @@
     "ELSH" 0,
     "ELXP" 0;
   }
+  .animation-slide-in{
+    animation: slideIN 2s forwards;
+  }
+  .animation-slide-out{
+    animation:slideOut 2s forwards;
+  }
+
+  .custom-rotate:hover {
+    transform: rotateY(10deg);
+  }
+
+  .rainbow-text {
+    background: linear-gradient(
+        90deg,
+        #ff0000, #ff4500, #ffff00, #32cd32,
+        #00bfff, #4169e1, #8a2be2, #ff1493, #ff0000
+    );
+    background-size: 400% 400%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: rainbow 2s ease-in-out infinite;
+  }
+
+  .rainbow-background {
+    background: linear-gradient(
+        45deg,
+        #ff0000, #ff4500, #ffff00, #32cd32,
+        #00bfff, #4169e1, #8a2be2, #ff1493, #ff0000
+    );
+    background-size: 400% 400%;
+    animation: rainbow-bg 5s ease-in-out infinite;
+  }
+  .shine-button {
+      position: relative;
+      background: #000000;
+      overflow: hidden;
+  }
+
+  .shine-button::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.4),
+          transparent
+      );
+      animation: shine 2s infinite;
+  }
+}
+
+@keyframes slideIN{
+  0%{
+    transform: translateX(100%);
+  }
+  100%{
+    transform: translateX(0%);
+  }
+}
+@keyframes slideOut{
+  0%{
+    transform: translateX(0%);
+  }
+  100%{
+    transform: translateX(100%);
+  }
+}
+@keyframes rainbow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes rainbow-bg {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+
+@keyframes shine {
+    0% {
+        left: -100%;
+    }
+    100% {
+        left: 100%;
+    }
 }
