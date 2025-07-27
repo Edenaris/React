@@ -1,11 +1,11 @@
 import { useContext } from 'react';
 import React from 'react';
-import { isShopingCart, ShopingObjContext, PageContext } from '../App';
-
+import { isShopingCart, ShopingObjContext } from '../App';
+import { Link } from 'react-router-dom';
 const Header = () => {
     const { isShopingCartOpen, setIsShopingCartOpen } = useContext(isShopingCart);
     const { ShopingObj } = useContext(ShopingObjContext);
-    const { setCurrentPage } = useContext(PageContext);
+    
     
     return (
         <div id='header-container' className='flex justify-center'>
@@ -28,22 +28,11 @@ const Header = () => {
                         </button>
                     </div>
                     
-                    
-                    <a 
-                        href="#" 
-                        onClick={(e) => {
-                            e.preventDefault();
-                            setCurrentPage('first');
-                        }}
-                        className='hover:text-blue-600 cursor-pointer'
-                    >
-                        First Page
-                    </a>
-                    
-                    <a href="">Features</a>
-                    <a href="">Enterprise</a>
-                    <a href="">Support</a>
-                    <a href="">Pricing</a>
+                    <Link to='/FirstPage'>First Page</Link>
+                    <Link to='/AboutPage'>about</Link>
+                    <Link to='/PricePage'>price</Link>
+                    <Link to='/ContactPage'>contact</Link>
+
                 </div>
            </header>
         </div>  

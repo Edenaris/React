@@ -1,8 +1,9 @@
 import { useContext, useState } from 'react';
-import { PageContext } from '../App';
+import { Link } from 'react-router-dom';
+
 
 const FirstPage = () => {
-    const { setCurrentPage } = useContext(PageContext);
+    
     const [coments, setComents] = useState([]);
     const [count, setCount] = useState(0);
     function AddPosts() {
@@ -16,12 +17,12 @@ const FirstPage = () => {
         <div className='min-h-screen  flex flex-col items-center p-8'>
             
             <div className="w-full max-w-6xl mb-8">
-                <button 
-                    onClick={() => setCurrentPage('main')}
-                    className='bg-white hover:bg-gray-50 text-gray-700 px-6 py-3 rounded-lg shadow-sm border border-gray-200 font-medium transition-all duration-200 hover:shadow-md flex items-center gap-2'
+                <Link 
+                    to = '/'
+                    className='bg-white hover:bg-gray-50 text-gray-700 px-6 py-3 rounded-lg shadow-sm border border-gray-200 font-medium transition-all duration-200 hover:shadow-md flex inline-flex items-center gap-2'
                 >
                     ← return
-                </button>
+                </Link>
             </div>
 
             

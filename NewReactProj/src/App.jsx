@@ -1,13 +1,15 @@
+
 import { createContext, useState } from 'react';
 import './App.css';
-import Header from './components/Header';
-import Main from './components/Main';
-import Footer from './components/Footer';
-import FirstPage from './components/FirstPage'; // импортируем твою страницу
-
+import MainPage from './components/MainPage'; 
+import FirstPage from './components/FirstPage';
+import AboutPage from './components/AboutPage';
+import ContactPage from './components/ContactPage';
+import PricePage from './components/PricePage';
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 export const isShopingCart = createContext();
 export const ShopingObjContext = createContext();
-export const PageContext = createContext(); // новый контекст для страниц
+
 
 function App() {
   const [isShopingCartOpen, setIsShopingCartOpen] = useState(false);
@@ -15,27 +17,22 @@ function App() {
     {name:'Big Shot', price:'911', descriptionM:'have a UNLIMITED memory'}
   ]);
   
-
-  const [currentPage, setCurrentPage] = useState('main'); 
+ 
 
   return (
     <div className='min-h-screen flex flex-col items-center'>
       <isShopingCart.Provider value={{ isShopingCartOpen, setIsShopingCartOpen }}>
         <ShopingObjContext.Provider value={{ ShopingObj, setShopingObj }}>
-          <PageContext.Provider value={{ currentPage, setCurrentPage }}>
-            
-           
-            {currentPage === 'first' ? (
-              <FirstPage />
-            ) : (
-              <>
-                <Header />
-                <Main />
-                <Footer />
-              </>
-            )}
-            
-          </PageContext.Provider>
+          <BrowserRouter>
+            <Routes>
+                <Route path='/' element={<MainPage />}></Route>
+                <Route path='/FirstPage' element={<FirstPage />}></Route>
+                <Route path='/PricePage' element={<PricePage/>}></Route>
+                <Route path='/AboutPage' element={<AboutPage />}></Route>
+                <Route path='/ContactPage' element={<ContactPage />}></Route>
+            </Routes>
+          </BrowserRouter> 
+              
         </ShopingObjContext.Provider>
       </isShopingCart.Provider>
     </div>
