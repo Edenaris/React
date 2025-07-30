@@ -1,9 +1,7 @@
 import React from 'react';
-
+import { Link } from 'react-router-dom';
 const PricePage = () => {
-    const handleBackClick = () => {
-        console.log('Navigate back to home');
-    };
+
 
     const plans = [
         {
@@ -51,14 +49,14 @@ const PricePage = () => {
 
     return (
         <div className="min-h-screen bg-gradient-to-br from-purple-50 to-pink-100">
-            {/* Header */}
+
             <div className="container mx-auto px-6 py-8">
-                <button
-                    onClick={handleBackClick}
-                    className="bg-white hover:bg-gray-50 text-gray-700 px-6 py-3 rounded-lg shadow-sm border border-gray-200 font-medium transition-all duration-200 hover:shadow-md inline-flex items-center gap-2"
+                <Link
+                to = '/'
+                className="bg-white hover:bg-gray-50 text-gray-700 px-6 py-3 rounded-lg shadow-sm border border-gray-200 font-medium transition-all duration-200 hover:shadow-md inline-flex items-center gap-2"
                 >
                     ← return
-                </button>
+                </Link>
             </div>
 
            

@@ -1,15 +1,37 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
+import { Swiper, SwiperSlide } from 'swiper/react';
+
+import { Pagination } from 'swiper/modules';
+import { 
+  faGithub,      // GitHub
+  faDiscord,     // Discord  
+  faTwitter,     // Twitter
+  faLinkedin,    // LinkedIn
+  faYoutube,     // YouTube
+  faInstagram,   // Instagram
+  faFacebook,    // Facebook
+  faTelegram,    // Telegram
+  faGoogle       // Google
+} from '@fortawesome/free-brands-svg-icons';
+
+import 'swiper/css';
+import 'swiper/css/pagination';
 
 const AboutPage = () => {
-    const handleBackClick = () => {
-        
-        console.log('Navigate back to home');
+
+
+    const pagination = {
+        clickable: true,
+        renderBullet: function (index, className) {
+            return '<span class="' + className + '">' + (index + 1) + '</span>';
+        },
     };
 
     return (
         <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
-           
             <div className="container mx-auto px-6 py-8">
                 <Link 
                     to={'/'}
@@ -17,20 +39,109 @@ const AboutPage = () => {
                 >
                     ← return
                 </Link>
+                
+                
+                <div className="mt-4 text-yellow-400 text-2xl">
+
+                </div>
             </div>
 
-          
             <div className="container mx-auto px-6 py-16">
                 <div className="max-w-4xl mx-auto">
-                  
                     <div className="text-center mb-16">
                         <h1 className="text-5xl font-bold text-gray-800 mb-6">About Us</h1>
+                        <div className="text-yellow-400 text-2xl mb-4">
+
+                           
+                        </div>
                         <p className="text-xl text-gray-600 leading-relaxed">
                             We're passionate about creating amazing experiences and delivering exceptional value to our customers.
                         </p>
                     </div>
 
-                    
+                   
+                    <div className="mb-16">
+                        <Swiper
+                            pagination={pagination}
+                            modules={[Pagination]}
+                            className="h-64 bg-white rounded-2xl shadow-lg custom-swiper"
+                        >
+                            <SwiperSlide>
+                                <div className="h-full w-full flex items-center justify-center bg-gradient-to-r from-blue-500 to-purple-600 text-white text-2xl font-bold rounded-2xl">
+                                   <FontAwesomeIcon icon={faGithub} size="2x" />
+                                </div>
+                            </SwiperSlide>
+                            <SwiperSlide>
+                                <div className="h-full w-full flex items-center justify-center bg-gradient-to-r from-green-500 to-blue-600 text-white text-2xl font-bold rounded-2xl">
+                                    <FontAwesomeIcon icon={faDiscord} size="2x"/>
+                                </div>
+                            </SwiperSlide>
+                            <SwiperSlide>
+                                <div className="h-full w-full flex items-center justify-center bg-gradient-to-r from-pink-500 to-red-600 text-white text-2xl font-bold rounded-2xl">
+                                    <FontAwesomeIcon icon={faTwitter} size="2x"/>
+
+                                </div>
+                            </SwiperSlide>
+                            <SwiperSlide>
+                                <div className="h-full w-full flex items-center justify-center bg-gradient-to-r from-yellow-500 to-orange-600 text-white text-2xl font-bold rounded-2xl">
+                                    <FontAwesomeIcon icon={faLinkedin} size="2x"/>
+                                </div>
+                            </SwiperSlide>
+                            <SwiperSlide>
+                                <div className="h-full w-full flex items-center justify-center bg-gradient-to-r from-indigo-500 to-purple-600 text-white text-2xl font-bold rounded-2xl">
+                                    <FontAwesomeIcon icon={faYoutube} size="2x"/>
+                                </div>
+                            </SwiperSlide>
+                            <SwiperSlide>
+                                <div className="h-full w-full flex items-center justify-center bg-gradient-to-r from-teal-500 to-green-600 text-white text-2xl font-bold rounded-2xl">
+                                    <FontAwesomeIcon icon={faInstagram} size="2x"/>
+                                </div>
+                            </SwiperSlide>
+                            <SwiperSlide>
+                                <div className="h-full w-full flex items-center justify-center bg-gradient-to-r from-red-500 to-pink-600 text-white text-2xl font-bold rounded-2xl">
+                                    <FontAwesomeIcon icon={faFacebook} size="2x"/>
+                                </div>
+                            </SwiperSlide>
+                            <SwiperSlide>
+                                <div className="h-full w-full flex items-center justify-center bg-gradient-to-r from-purple-500 to-indigo-600 text-white text-2xl font-bold rounded-2xl">
+                                    <FontAwesomeIcon icon={faTelegram} size="2x"/>
+                                </div>
+                            </SwiperSlide>
+                            <SwiperSlide>
+                                <div className="h-full w-full flex items-center justify-center bg-gradient-to-r from-orange-500 to-yellow-600 text-white text-2xl font-bold rounded-2xl">
+                                    <FontAwesomeIcon icon={faGoogle} size="2x"/>
+                                </div>
+                            </SwiperSlide>
+                        </Swiper>
+                    </div>
+
+           
+            <style jsx>{`
+                .custom-swiper .swiper-pagination-bullet {
+                    width: 20px;
+                    height: 20px;
+                    text-align: center;
+                    line-height: 20px;
+                    font-size: 12px;
+                    color: #000;
+                    opacity: 1;
+                    background: rgba(0, 0, 0, 0.2);
+                    margin: 0 4px;
+                }
+
+                .custom-swiper .swiper-pagination-bullet-active {
+                    color: #fff;
+                    background: #007aff;
+                }
+
+                .custom-swiper .swiper-slide {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    font-size: 18px;
+                }
+            `}</style>
+
                     <div className="grid md:grid-cols-2 gap-12 mb-16">
                         <div className="bg-white rounded-2xl p-8 shadow-lg">
                             <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-6">
@@ -59,7 +170,6 @@ const AboutPage = () => {
                         </div>
                     </div>
 
-                   
                     <div className="text-center mb-16">
                         <h2 className="text-3xl font-bold text-gray-800 mb-8">Meet Our Team</h2>
                         <div className="grid md:grid-cols-3 gap-8">
@@ -76,7 +186,6 @@ const AboutPage = () => {
                         </div>
                     </div>
 
-                    
                     <div className="bg-white rounded-2xl p-8 shadow-lg">
                         <div className="grid md:grid-cols-4 gap-8 text-center">
                             <div>
